@@ -1,0 +1,32 @@
+body {
+	font-family: sans-serif;
+}
+#notes {
+	min-height: 200px;
+}
+.post {
+	border: 1px solid gray;
+	border-radius: 0 0 5px 5px;
+	background-color: lightgreen;
+	width: 200px;
+	min-height: 175px;
+	display: inline-block;
+	margin-right: 15px;
+	vertical-align: top;
+	margin-bottom: 15px;
+	padding: 10px;
+}
+textarea {
+	height: 75px;
+	width: 250px;
+	display: block;
+}
+input[type=submit] {
+	margin: 10px;
+	background-color: green;
+	height: 30px;
+	width: 230px;
+	border: 1px solid black;
+	border-radius: 5px;
+	color: white;
+}
