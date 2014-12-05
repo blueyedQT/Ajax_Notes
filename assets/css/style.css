@@ -1,5 +1,13 @@
 .note {
-	background-color: yellow;
+/*	background-color: yellow;
 	border: 2px solid black;
-	margin: 10px;
+	margin: 10px;*/
 }
+h3 {
+	width: 200px;
+	border-bottom: 1px solid gray;
+}
+/*input[type=text] {
+	height: 100px;
+	width: 200px;
+}*/

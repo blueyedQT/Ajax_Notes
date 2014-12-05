@@ -9,21 +9,27 @@ class Notes extends CI_Controller {
 
 	public function add_note() {
 		$post = $this->input->post();
-		$display['title'] = $post['title'];
-		$display['description'] = $post['description'];
-		$result = $this->Note->add_note($post);
-		if($result > 0) {
-			$display['id'] = $result;
-			$display['action'] = 'add';
-			echo json_encode($display);
+		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('description', 'Description', 'required');
+		if($this->form_validation->run() != FALSE) {
+			$display['title'] = $post['title'];
+			$display['description'] = $post['description'];
+			$result = $this->Note->add_note($post);
+			if($result > 0) {
+				$display['id'] = $result;
+				$display['action'] = 'add';
+				echo json_encode($display);
+			}
 		}
 	}
 
 	public function update_note() {
 		$post = $this->input->post();
-		$result = $this->Note->update_note($post);
-		if($result) {
-			redirect('/');
+		$this->form_validation->set_rules('description', 'Description', 'required');
+		if($this->form_validation->run() != FALSE) {
+			$result = $this->Note->update_note($post);
+			if($result) {
+			}
 		}
 	}
 

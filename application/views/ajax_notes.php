@@ -18,14 +18,14 @@
 					if(output.action == 'add') {
 						$('#all_notes').prepend(
 							"<div class='note'>"+
-								"<h2>"+output.title+"</h2>"+
-								"<form class='delete' action='delete' method='post'>"+
-									"<input type='hidden' name='id' value='"+output.id+"'>"+
-									"<input type='submit' name='delete' value='Delete'>"+
-								"</form>"+
+								"<h3>"+output.title+"</h3>"+
 								"<form class='update' action='update_note' method='post'>"+
 									"<input type='text' name='description' value='"+output.description+"'>"+
 									"<input type='hidden' name='id' value='"+output.id+"'>"+
+								"</form>"+
+								"<form class='delete' action='delete' method='post'>"+
+									"<input type='hidden' name='id' value='"+output.id+"'>"+
+									"<input type='submit' name='delete' value='Delete'>"+
 								"</form>"+
 							"</div>");
 					} else if(output.action == 'delete') {
@@ -44,22 +44,22 @@
 <?php 	if(!empty($notes)) {
 			foreach($notes as $note) { ?>
 			<div class="note">
-				<h2><?php echo $note['title'] ?></h2>
-				<form class="delete" action="delete" method="post" role="form">
-					<input type="hidden" name="id" value="<?php echo $note['id'] ?>">
-					<input type="submit" name="delete" value="Delete">
-				</form>
+				<h3><?php echo $note['title'] ?></h3>
 				<form class="update" action="update_note" method="post" role="form">
 					<input type="text" name="description" value="<?php echo $note['description'] ?>">
 					<input type="hidden" name="id" value="<?php echo $note['id'] ?>">
+				</form>
+				<form class="delete" action="delete" method="post" role="form">
+					<input type="hidden" name="id" value="<?php echo $note['id'] ?>">
+					<input type="submit" name="delete" value="Delete">
 				</form>
 			</div>
 <?php		}
 		} ?>
 		</div>
-		
+		<h2>Add New Note</h2>
 		<form id="add_new" action="add_note" method="post">
-			<input type="text" name="title">
+			<p>Title: <input type="text" name="title"></p>
 			<textarea name="description"></textarea>
 			<input class="btn" type="submit" name="add" value="Add Note">
 		</form>
