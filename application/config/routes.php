@@ -39,8 +39,9 @@
 */
 
 $route['default_controller'] = "notes/index";
-$route['create'] = "notes/create";
-$route['notes/class'] = "notes/class";
+$route['add_note'] = "notes/add_note";
+$route['update_note'] = "notes/update_note";
+$route['delete'] = "notes/delete_note";
 $route['404_override'] = '';
 
 

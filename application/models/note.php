@@ -2,15 +2,25 @@
 
 class Note extends CI_Model {
 
-	public function get_posts() {
-		return $this->db->query("SELECT post FROM posts ORDER BY created_at DESC")->result_array();
-	}
-
-	public function add_post($post) {
-		$query = "INSERT INTO posts (post, created_at, updated_at) VALUES (?,?,?)";
-		$values = array($post, date('Y-m-d, H:i:s'), date('Y-m-d, H:i:s'));
+	public function add_note($note) {
+		$query = "INSERT INTO notes (title, description, created_at, updated_at) VALUES (?,?, NOW(), NOW())";
+		$values = array($note['title'], $note['description']);
 		$this->db->query($query, $values);
 		return $this->db->insert_id();
+	}
+
+	public function get_notes() {
+		return $this->db->query("SELECT id, title, description FROM notes ORDER BY created_at DESC")->result_array();
+	}
+
+	public function update_note($note) {
+		$query = "UPDATE notes SET description = ?, updated_at = NOW() WHERE id = ?";
+		$values = array($note['description'], $note['id']);
+		return $this->db->query($query, $values);
+	}
+
+	public function delete_note($id) {
+		return $this->db->query("DELETE FROM notes WHERE id=?", array($id));
 	}
 
 }
